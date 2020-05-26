@@ -1,0 +1,116 @@
+body{
+	background-color: rgb(232, 238, 207)
+}
+
+body.claro {
+	background-color:rgb(236, 231, 219);
+}
+
+body.oscuro {
+	background-color: #9ea299;
+}
+
+#zona-gestos{
+	width: 100%;
+	background-color: #6a943b;
+	margin-top:30px;
+	min-height: 300px;
+	display: block;
+}
+
+#info{
+	color:#0c45f1;
+	font-size:2em;
+	margin-top: 10px;
+	text-transform: uppercase;
+}
+
+button {
+	background-color: #6a943b;
+	color: #FFFFFF;
+	border: none;
+	width: 100%;
+	padding:30px;
+	font-size: 1em;
+	margin-top:30px;
+
+}
+/*clase doubletap que define la duración de la animacion en este caso la animación dura 1.5 segundos y solo se produce una vez*/
+
+#zona-gestos.doubletap{
+	-webkit-animation: pulsacion 1.5s 1;
+	
+}
+
+/*clase press que define la
+a duración de la animacion en este caso la animación dura 1.5 segundos y solo se produce una vez*/
+#zona-gestos.press{
+	-webkit-animation: presion 1.5s 1;
+}
+
+#zona-gestos.swipe-derecha {
+	-webkit-animation: swipe-derecha 2s 1;
+}
+
+#zona-gestos.swipe-izquierda {
+	-webkit-animation: swipe-izquierda 2s 1;
+} 
+
+#zona-gestos.rotate {
+	-webkit-animation: rotate 1.5s 1;
+}
+
+/*descripcion de la animación al ser terminal iphone y android usamos el prefijo -webkit*/
+
+@-webkit-keyframes pulsacion {
+		/*describimos el fondo de la zona-gestos al inicio de la acción y al final de la accion*/
+	0%, 100%{
+	background-color: #6a943b;	
+		/*Cuando la acción llega al 50% cambiará el fondo de la zona de gestos*/	
+	}50%{
+		background-color: #8de1be;
+	}
+}
+
+/*descripcion de la animación al ser terminal iphone y android usamos el prefijo -webkit*/
+
+@-webkit-keyframes presion {
+	/*describimos el fondo de la zona-gestos al inicio de la acción y al final de la accion*/
+	0%, 100%{
+	background-color: #6a943b;	
+		/*Cuando la acción llega al 50% cambiará el fondo de la zona de gestos*/
+	}50%{
+		background-color: #577a76;
+	}
+}
+
+/*Descripción de la animación al ser terminal iphone y android usamos el prefijo -webkit-keyframes*/
+@-webkit-keyframes swipe-derecha {
+	/*cuando hacemos swipe desplanzando dedo a la derecha el margen izquierdo al inicio y final de la acción esta 100%*/
+	0%, 100%{
+	margin-left: 0%;
+	/*cuando la acción llega al 50% desplazamos el margen a 100% para lograr efecto de desplazar la zona-gestos a la derecha*/
+	}50%{
+	margin-left: 100%;
+	}
+}
+
+/*Descripción de la animación al ser terminal iphone y android usamos el prefijo -webkit-keyframes*/
+@-webkit-keyframes swipe-izquierda {
+	/*cuando hacemos swipe desplanzando dedo a la izquierda el ancho de zona de gestos esta al 100%*/
+	0%, 100%{
+	width: 100%;
+	/*cuando la acción llega al 50% desplazamos el ancho de la zona de gestos se pone a 0 para lograr efecto de desplazar la zona-gestos a la izquierda*/
+	}50%{
+	width: 0%;
+	}
+}
+
+/*Descripción de la animación de rotación, al detectar el movimiento con los dedos de rotacion la zona gestos rotara sobre si mimsa
+360ª*/
+
+@-webkit-keyframes rotate {
+	100%{
+		-webkit-transform: rotate(360deg);
+	}
+}
